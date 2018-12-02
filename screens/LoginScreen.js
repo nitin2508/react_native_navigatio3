@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Button,AsyncStorage} from 'react-native';
+import { TextField } from 'react-native-material-textfield';
 
 class LoginScreen extends Component{
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            phone:''
+        };
     }
 
     SignIn = async () => {
@@ -13,8 +16,13 @@ class LoginScreen extends Component{
     };
 
     render(){
+        let { phone } = this.state;
         return  (
             <View style={styles.container}>
+
+      
+
+
                 <Text>Login screen</Text>
                 <Button
                 onPress={()=>this.SignIn()}
