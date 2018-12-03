@@ -3,7 +3,7 @@ import {View,Text,StyleSheet,Dimensions,Image} from 'react-native';
 import Carousel ,{Pagination} from 'react-native-snap-carousel';
 
 export default class HomeCarosel extends Component{
-
+    
     state = {
         entries:  [{
             title: 'Beautiful and dramatic Antelope Canyon',
@@ -44,13 +44,13 @@ export default class HomeCarosel extends Component{
             <Pagination
               dotsLength={entries.length}
               activeDotIndex={activeSlide}
-              containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+              containerStyle={{ backgroundColor: 'transparent' }}
               dotStyle={{
                   width: 10,
                   height: 10,
                   borderRadius: 5,
                   marginHorizontal: 8,
-                  backgroundColor: 'rgba(255, 255, 255, 0.92)'
+                  backgroundColor: 'black'
               }}
               inactiveDotStyle={{
                   // Define styles for inactive dots here
@@ -61,9 +61,10 @@ export default class HomeCarosel extends Component{
         );
     }
 
+
     _renderItem ({item, index}) {
         return (
-            <View style={styles.slide}>
+            <View style={{width:Dimensions.get('window').width}} >
                 <Image
           style={{width: 200, height: 200}}
           source={{uri: item.illustration}}
@@ -74,15 +75,29 @@ export default class HomeCarosel extends Component{
 
     render(){
         return (
-            <View style={{height:200}}>
+            <View style={styles.slide}>
                 <Carousel
-              ref={(c) => { this._carousel = c; }}
-              data={this.state.entries}
-              renderItem={this._renderItem}
-              sliderWidth={200}
-              itemWidth={200}
-            />
+                windowSize={1}
+                data={this.state.entries}
+                renderItem={this._renderItem}
+                itemHeight={200}
+                itemWidth={Dimensions.get('window').width}
+                sliderWidth={Dimensions.get('window').width}
+                itemWidth={200}
+                onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+                />
+                { this.pagination }
             </View>
+
+            // <View style={{height:200}}>
+            //     <Carousel
+            //   ref={(c) => { this._carousel = c; }}
+            //   data={this.state.entries}
+            //   renderItem={this._renderItem}
+            //   sliderWidth={200}
+            //   itemWidth={200}
+            // />
+            // </View>
         );
     }
 }
