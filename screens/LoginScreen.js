@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Button,AsyncStorage,Image} from 'react-native';
 import { TextField } from 'react-native-material-textfield';
+import HomeCarosel from '../components/HomeCarosel';
 
 class LoginScreen extends Component{
     constructor(props) {
@@ -23,7 +24,7 @@ class LoginScreen extends Component{
           style={{width: 50, height: 50}}
           source={{uri: 'https://images.upwardly.in/cloudinary/wealth-building/conservative.png?width=100'}}
         />
-
+                <HomeCarosel/>
 
                 <Text>Login scr</Text>
                 <Button
