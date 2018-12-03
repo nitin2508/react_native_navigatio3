@@ -64,9 +64,8 @@ export default class HomeCarosel extends Component{
     _renderItem ({item, index}) {
         return (
             <View style={styles.slide}>
-                <Text style={styles.title}>{ item.title }</Text>
                 <Image
-          style={{width: 50, height: 50}}
+          style={{width: 200, height: 200}}
           source={{uri: item.illustration}}
         />
             </View>
@@ -75,7 +74,7 @@ export default class HomeCarosel extends Component{
 
     render(){
         return (
-            <View>
+            <View style={{height:200}}>
                 <Carousel
               ref={(c) => { this._carousel = c; }}
               data={this.state.entries}
