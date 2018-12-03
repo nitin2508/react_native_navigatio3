@@ -3,37 +3,27 @@ import {View,Text,StyleSheet,Dimensions,Image} from 'react-native';
 import Carousel ,{Pagination} from 'react-native-snap-carousel';
 
 export default class HomeCarosel extends Component{
-    
+    constructor(props){
+        super(props)
+        this.width = Dimensions.get('window').width;
+    }
     state = {
-        entries:  [{
-            title: 'Beautiful and dramatic Antelope Canyon',
-            subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-            illustration: 'https://i.imgur.com/UYiroysl.jpg'
+        entries: 
+         [{
+            title: 'Lifetime Assistance',
+            illustration: 'https://qawittyparrotcloud.blob.core.windows.net/qawpimagescontainer/e7c68c7c-b1a3-4ac0-b19e-617d1423048b.png'
         },
         {
-            title: 'Earlier this morning, NYC',
-            subtitle: 'Lorem ipsum dolor sit amet',
-            illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
+            title: 'Convenience and Ease',
+            illustration: 'https://qawittyparrotcloud.blob.core.windows.net/qawpimagescontainer/e7c68c7c-b1a3-4ac0-b19e-617d1423048b.png'
         },
         {
-            title: 'White Pocket Sunset',
-            subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-            illustration: 'https://i.imgur.com/MABUbpDl.jpg'
+            title: 'Bank Grade Security',
+            illustration: 'https://qawittyparrotcloud.blob.core.windows.net/qawpimagescontainer/e7c68c7c-b1a3-4ac0-b19e-617d1423048b.png'
         },
         {
-            title: 'Acrocorinth, Greece',
-            subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-            illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
-        },
-        {
-            title: 'The lone tree, majestic landscape of New Zealand',
-            subtitle: 'Lorem ipsum dolor sit amet',
-            illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
-        },
-        {
-            title: 'Middle Earth, Germany',
-            subtitle: 'Lorem ipsum dolor sit amet',
-            illustration: 'https://i.imgur.com/lceHsT6l.jpg'
+            title: 'Dedicated Advisor',
+            image: 'https://qawittyparrotcloud.blob.core.windows.net/qawpimagescontainer/e7c68c7c-b1a3-4ac0-b19e-617d1423048b.png'
         }],
         activeSlide:0
     }
@@ -51,7 +41,7 @@ export default class HomeCarosel extends Component{
                   borderRadius: 5,
                   marginHorizontal: 8,
                   backgroundColor: 'black'
-              }}
+              }}give 
               inactiveDotStyle={{
                   // Define styles for inactive dots here
               }}
@@ -66,9 +56,9 @@ export default class HomeCarosel extends Component{
         return (
             <View style={{width:Dimensions.get('window').width}} >
                 <Image
-          style={{width: 200, height: 200}}
-          source={{uri: item.illustration}}
-        />
+                style={{width: this.width, height: 200}}
+                source={{uri: item.illustration}}
+                />
             </View>
         );
     }
@@ -83,7 +73,7 @@ export default class HomeCarosel extends Component{
                 itemHeight={200}
                 itemWidth={Dimensions.get('window').width}
                 sliderWidth={Dimensions.get('window').width}
-                itemWidth={200}
+                itemWidth={this.width}
                 onSnapToItem={(index) => this.setState({ activeSlide: index }) }
                 />
                 { this.pagination }
