@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text,StyleSheet,Button,AsyncStorage} from 'react-native';
+import {View,Text,StyleSheet,Button,AsyncStorage,Image} from 'react-native';
 import { TextField } from 'react-native-material-textfield';
 
 class LoginScreen extends Component{
@@ -9,7 +9,6 @@ class LoginScreen extends Component{
             phone:''
         };
     }
-
     SignIn = async () => {
         await AsyncStorage.setItem("userToken", "Nitin");
         this.props.navigation.navigate("App");
@@ -20,10 +19,13 @@ class LoginScreen extends Component{
         return  (
             <View style={styles.container}>
 
-      
+                <Image
+          style={{width: 50, height: 50}}
+          source={{uri: 'https://images.upwardly.in/cloudinary/wealth-building/conservative.png?width=100'}}
+        />
 
 
-                <Text>Login screen</Text>
+                <Text>Login scr</Text>
                 <Button
                 onPress={()=>this.SignIn()}
                 title="Login"

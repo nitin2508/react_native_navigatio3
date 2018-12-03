@@ -22,6 +22,10 @@ const AuthStack = createStackNavigator({
   Register:{
     screen:RegisterScreen
   }
+},
+{defaultNavigationOptions:{
+  headerTransparent: true,  
+}
 });
 
 const AppTabNavigator = createBottomTabNavigator({
