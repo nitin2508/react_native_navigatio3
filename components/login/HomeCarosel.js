@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Dimensions,Image} from 'react-native';
 import Carousel ,{Pagination} from 'react-native-snap-carousel';
+import CaroselItem from './CaroselItem';
 
 export default class HomeCarosel extends Component{
     constructor(props){
@@ -54,12 +55,13 @@ export default class HomeCarosel extends Component{
 
     _renderItem ({item, index}) {
         return (
-            <View style={{width:Dimensions.get('window').width}} >
-                <Image
-                style={{width: this.width, height: 200}}
-                source={{uri: item.illustration}}
-                />
-            </View>
+            <CaroselItem item={item}/>
+            // <View style={{width:Dimensions.get('window').width}} >
+            //     <Image
+            //     style={{width: this.width, height: 200}}
+            //     source={{uri: item.illustration}}
+            //     />
+            // </View>
         );
     }
 
@@ -70,7 +72,7 @@ export default class HomeCarosel extends Component{
                 windowSize={1}
                 data={this.state.entries}
                 renderItem={this._renderItem}
-                itemHeight={200}
+                itemHeight={350}
                 itemWidth={Dimensions.get('window').width}
                 sliderWidth={Dimensions.get('window').width}
                 itemWidth={this.width}
@@ -78,23 +80,13 @@ export default class HomeCarosel extends Component{
                 />
                 { this.pagination }
             </View>
-
-            // <View style={{height:200}}>
-            //     <Carousel
-            //   ref={(c) => { this._carousel = c; }}
-            //   data={this.state.entries}
-            //   renderItem={this._renderItem}
-            //   sliderWidth={200}
-            //   itemWidth={200}
-            // />
-            // </View>
         );
     }
 }
 const styles = StyleSheet.create({
     slide: {
         width: Dimensions.get('window').width,
-        height: 200,
+        height: 350,
         paddingHorizontal: 20
         // other styles for the item container
     },
