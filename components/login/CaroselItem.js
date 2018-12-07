@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     image:{
         width:Dimensions.get('window').width*.7,
         height:180,
-        borderRadius:'rrr4%'
+        borderRadius:4
     },  
     text:{
         fontSize:16,

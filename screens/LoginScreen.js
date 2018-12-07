@@ -21,8 +21,8 @@ class LoginScreen extends Component{
             <View style={styles.container}>
                 <View style={styles.upwardlyImage}>
                 <Image
-                    style={{width: 200, height: 60}}
-                    source={{uri: 'http://i.imgur.com/PeTOG1G.png'}}
+                    style={{width: 60, height: 60}}
+                    source={{uri: 'https://images.upwardly.in/logos/upwardly_emblem_green.png'}}
                 />
                 </View>
                 <HomeCarosel/>
